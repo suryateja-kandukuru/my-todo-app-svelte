@@ -1,4 +1,4 @@
-<div class="w-screen h-screen flex justify-center items-center">
+<div class="w-full h-96 flex justify-center items-center">
   <Button color="purple" on:click={ handleLogin }>Click here to login</Button>
 </div>
 

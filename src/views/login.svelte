@@ -20,7 +20,6 @@
   const handleLogin = async () => {
     const result = await login()
     setToken('bearer')
-    console.log(result)
     navigate('/add-todo')
   }
 

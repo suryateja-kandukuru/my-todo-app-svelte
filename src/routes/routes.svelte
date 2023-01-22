@@ -4,21 +4,21 @@
 		<Route path="/">
 			<Login />
 		</Route>
-		<Route path="/add-todo">
+		<PrivateRoute path="/add-todo">
 			<AddTodo />
-		</Route>
-		<Route path="/add-todo/:id" let:params>
+		</PrivateRoute>
+		<PrivateRoute path="/add-todo/:id" let:params>
 			<AddTodo id={params.id}/>
-		</Route>
-		<Route path="/todo-list">
+		</PrivateRoute>
+		<PrivateRoute path="/todo-list">
 			<TodoList />
-		</Route>
-		<Route path="/view-todo-details">
+		</PrivateRoute>
+		<PrivateRoute path="/view-todo-details">
 			<ViewDetails />
-		</Route>
-		<Route path="/about">
+		</PrivateRoute>
+		<PrivateRoute path="/about">
 			<About />
-		</Route>
+		</PrivateRoute>
 	</div>
 </Router>
 
@@ -31,5 +31,5 @@
   import TodoList from "../views/todo-list.svelte";
   import ViewDetails from "../views/view-details.svelte";
   import Login from "../views/login.svelte";
-
+	import PrivateRoute from './private-route.svelte'
 </script>

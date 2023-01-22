@@ -1,4 +1,3 @@
-hiii { isTokenAvailable }
 {#if isTokenAvailable}
 <Navbar let:hidden let:toggle>
   <NavBrand href="#">
@@ -31,22 +30,27 @@ hiii { isTokenAvailable }
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Button } from 'flowbite-svelte'
 
   import { SideNavList } from '../constants/sidebar'
-  import { onMount } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
   import { setToken, token } from '../store/user';
   import { logout } from '../services/login.service';
 
   const navigate = useNavigate()
+
   let isTokenAvailable
-  $: console.log($token)
+  let tokenSub
+
   onMount(() => {
-    const sub = token.subscribe((res) => {
-      console.log('ss', res)
+    tokenSub = token.subscribe((res) => {
       isTokenAvailable = res?.length
     })
   })
 
+
+  onDestroy(() => {
+    tokenSub()
+  })
+
   const handleLogout = (e) => {
-    console.log(localStorage.getItem('token'))
     e.preventDefault()
     logout()
     setToken('')

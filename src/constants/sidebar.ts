@@ -8,6 +8,10 @@ export const SideNavList = [
     name: 'Todo List'
   },
   {
+    route: '/users',
+    name: 'Users'
+  },
+  {
     route: '/about',
     name: 'About Project'
   }

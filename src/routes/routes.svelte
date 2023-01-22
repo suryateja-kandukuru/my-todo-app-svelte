@@ -16,6 +16,9 @@
 		<PrivateRoute path="/view-todo-details">
 			<ViewDetails />
 		</PrivateRoute>
+		<PrivateRoute path="/users">
+			<Users />
+		</PrivateRoute>
 		<PrivateRoute path="/about">
 			<About />
 		</PrivateRoute>
@@ -32,4 +35,5 @@
   import ViewDetails from "../views/view-details.svelte";
   import Login from "../views/login.svelte";
 	import PrivateRoute from './private-route.svelte'
+  import Users from "../views/users.svelte";
 </script>

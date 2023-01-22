@@ -26,7 +26,7 @@
 
 <script lang="ts">
   import { Input, Helper, Button, Toast } from 'flowbite-svelte';
-  import { createEventDispatcher, onMount } from 'svelte';
+  import { createEventDispatcher, onDestroy, onMount } from 'svelte';
 
   import { form, field } from 'svelte-forms';
   import { required } from 'svelte-forms/validators';
@@ -43,6 +43,7 @@
   let dropdownName = 'high'
   let showToast = false
   let formData: any = {}
+  let todoFormSub
   const todoStatus: string[] = ['high', 'medium', 'low']
   const todo = field('todo', '', [required()]);
   const todoForm = form(todo);
@@ -57,11 +58,15 @@
     $todo.value = filtered.todo
     }
 
-    todoForm.subscribe((res) => {
+    todoFormSub = todoForm.subscribe((res) => {
       if(res.valid && res.dirty && !res.errors.length) {
         formData = res.summary
       }
     })
+  })
+
+  onDestroy(() => {
+    todoFormSub()
   })
 
   // functions

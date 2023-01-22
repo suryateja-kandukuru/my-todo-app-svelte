@@ -13,6 +13,10 @@
   import TodoForm from '../../src/components/todo-form.svelte'
   import { addTodo, updateTodo } from '../../src/store/todo';
 
+  // props
+  export let id: any = undefined
+
+  // variables
   const params = useParams()
   const navigate = useNavigate()
   let editMode = false
@@ -22,10 +26,9 @@
   })
 
   const handleTodo = (e: any) => {
-    console.log(e)
     if(e.detail.idEditMode) {
       updateTodo(e.detail.formData)
-      // navigate('/todo-list')
+      navigate('/todo-list')
     } else {
       addTodo(e.detail.formData)
     }

@@ -20,9 +20,16 @@
 </Navbar>
 
 <script>
-  import { Link } from 'svelte-navigator'
+  import { Link, useNavigate } from 'svelte-navigator'
 
   import { Navbar, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte'
 
   import { SideNavList } from '../constants/sidebar'
+  import { onMount } from 'svelte';
+
+  const navigate = useNavigate()
+
+  onMount(() => {
+      navigate('/add-todo')
+  })
 </script>

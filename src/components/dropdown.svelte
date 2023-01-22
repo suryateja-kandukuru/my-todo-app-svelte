@@ -1,7 +1,7 @@
 <Button><Chevron>{ selectedDropdown ? selectedDropdown : dropdownName }</Chevron></Button>
 <Dropdown>
   {#each dropdownOptions as item}
-    <DropdownItem on:click={() => { handleClick(item) }}>{item}</DropdownItem>
+    <DropdownItem on:click={(e) => { e.preventDefault(), handleClick(item) }}>{item}</DropdownItem>
 	{/each}
 </Dropdown>
 

@@ -70,8 +70,10 @@
   })
 
   // functions
-  const handleDropdownChange = ({ detail }: Record<string, any>) => {
-    console.log(detail)
+  const handleDropdownChange = (e: any) => {
+    e.preventDefault()
+    console.log(e.detail)
+    dropdownName = e.detail
   }
 
   const handleTodoSave = (e) => {

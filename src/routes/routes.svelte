@@ -1,6 +1,9 @@
 <Router>
   <Header />
 	<div class="w-full p-4">
+		<Route path="/">
+			<Login />
+		</Route>
 		<Route path="/add-todo">
 			<AddTodo />
 		</Route>
@@ -27,5 +30,6 @@
   import About from "../views/about.svelte";
   import TodoList from "../views/todo-list.svelte";
   import ViewDetails from "../views/view-details.svelte";
+  import Login from "../views/login.svelte";
 
 </script>

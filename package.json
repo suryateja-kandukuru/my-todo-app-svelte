@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "sass": "^1.57.1",
+    "svelte-forms": "^2.3.1",
     "svelte-navigator": "^3.2.2"
   }
 }

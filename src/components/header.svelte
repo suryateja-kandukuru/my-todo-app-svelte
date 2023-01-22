@@ -1,5 +1,5 @@
 <Navbar let:hidden let:toggle>
-  <NavBrand href="/">
+  <NavBrand href="#">
     <img
       src="https://flowbite.com/docs/images/logo.svg"
       class="mr-3 h-6 sm:h-9"
@@ -12,7 +12,7 @@
   <NavHamburger on:click={toggle} />
   <NavUl {hidden}>
     {#each SideNavList as item }
-    <NavLi href="/">
+    <NavLi href="#">
       <Link to="{item.route}">{item.name}</Link>
     </NavLi>
     {/each}

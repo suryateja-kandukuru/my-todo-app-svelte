@@ -53,14 +53,12 @@
   onMount(() => {
     if(id > 0) {
     const filtered: any = $todos.filter((ele: any) => parseInt(ele.id) == id)[0]
-    console.log(filtered)
     dropdownName = filtered.priority
     $todo.value = filtered.todo
     }
 
     todoForm.subscribe((res) => {
       if(res.valid && res.dirty && !res.errors.length) {
-        console.log('xxx', res.summary)
         formData = res.summary
       }
     })
@@ -71,7 +69,8 @@
     console.log(detail)
   }
 
-  const handleTodoSave = () => {
+  const handleTodoSave = (e) => {
+    e.preventDefault()
     dispatch('formValue', {
       formData: {
       ...formData,
